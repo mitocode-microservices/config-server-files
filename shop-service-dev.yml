@@ -1,5 +1,3 @@
-
-
 eureka:
   client:
     serviceUrl:
@@ -30,6 +28,7 @@ spring:
       username: mitocode
       password: mitocode
       uri: mongodb://mitocode:mitocode@localhost:27017
+      authentication-database: admin
   webflux:
     base-path: '/shop-service/v1'
 
