@@ -12,10 +12,10 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     #     Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
-   healthcheck:
-     enabled: true
-   refresh:
-     enable: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
 
 ### Actuator info (/actuator/info)
 info:

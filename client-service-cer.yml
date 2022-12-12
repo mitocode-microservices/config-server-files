@@ -48,7 +48,8 @@ eureka:
       defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
     registerWithEureka: true
     fetchRegistry: true
-   healthcheck:
-     enabled: true
-   refresh:
-     enable: true
+    #     Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
