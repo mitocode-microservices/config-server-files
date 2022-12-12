@@ -1,24 +1,26 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9003}
+
+### Eureka Client configuration
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
     registerWithEureka: true
     fetchRegistry: true
-    #         Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
     healthcheck:
       enabled: true
     refresh:
       enable: true
 
-# información que muestra en /actuator/info
+### Actuator info (/actuator/info)
 info:
   app:
     app-name: Shop Service Microservice
     description: Microservicio para el crud de la tienda Mitocode
     version: 1.0
 
-
-### Config Server Client Configuration
+### Mongo database configuration
 spring:
   data:
     mongodb:
@@ -29,33 +31,5 @@ spring:
       password: mitocode
       uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
-  webflux:
-    base-path: '/shop-service/v1'
-
-### Circuit Breaker Configuration
-resilience4j:
-  circuitbreaker:
-    configs:
-      mitocode:
-        register-health-indicator: true
-        sliding-window-type: count_based
-        sliding-window-size: 5
-        failure-rate-threshold: 40
-        slow-call-rate-threshold: 40
-        permitted-number-of-calls-in-half-open-state: 1
-        max-wait-duration-in-half-open-state: 10s
-        wait-duration-in-open-state: 10s
-        slow-call-duration-threshold: 2s
-        writable-stack-trace-enabled: true
-        automatic-transition-from-open-to-half-open-enabled: true
-    instances:
-      mitocode:
-        base-config: shared
-  timelimiter:
-    configs:
-      shared:
-      timeout-duration: 2s
-      cancel-running-future: true
-    instances:
-      example:
-        base-config: shared
+  #webflux:
+  #  base-path: '/shop-service/v1'

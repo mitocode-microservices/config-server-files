@@ -1,8 +1,11 @@
 server:
-  port: ${CUSTOM.SERVER.PORT:9003}
+  port: ${CUSTOM.SERVER.PORT:9002}
 
 ### Eureka Client configuration
 eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
   client:
     serviceUrl:
       defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
@@ -16,8 +19,8 @@ eureka:
 ### Actuator info (/actuator/info)
 info:
   app:
-    app-name: Shop Service Microservice
-    description: Microservicio para el crud de la tienda Mitocode
+    app-name: Product Service Microservice
+    description: Microservicio para el crud de los productos
     version: 1.0
 
 ### Mongo database configuration
@@ -32,4 +35,4 @@ spring:
       uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
   #webflux:
-  #  base-path: '/shop-service/v1'
+  #  base-path: '/product-service/v1'
