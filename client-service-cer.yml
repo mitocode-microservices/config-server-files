@@ -12,7 +12,7 @@ resilience4j:
        permitted-number-of-calls-in-half-open-state: 4
        slow-call-rate-threshold: 50
        slow-call-duration-threshold: 2s
-   instances:  
+   instances:
      shop-service:
        base-config: customConfig
      user-service:
@@ -48,7 +48,6 @@ eureka:
       defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
     registerWithEureka: true
     fetchRegistry: true
-    #     Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
    healthcheck:
      enabled: true
    refresh:
