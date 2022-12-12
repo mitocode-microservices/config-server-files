@@ -12,7 +12,7 @@ resilience4j:
        permitted-number-of-calls-in-half-open-state: 4
        slow-call-rate-threshold: 50
        slow-call-duration-threshold: 2s
-   instances:
+   instances:  
      shop-service:
        base-config: customConfig
      user-service:
@@ -34,7 +34,7 @@ resilience4j:
 ### Actuator info (/actuator/info)
 info:
   app:
-    app-name: Client Service Microservice
+    app-name: Client Service Microservice Certificación
     description: Microservicio para el consumo de los servicios producto-service, user-service y shop-service
     version: 1.0
 

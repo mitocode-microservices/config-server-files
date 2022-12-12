@@ -34,7 +34,7 @@ resilience4j:
 ### Actuator info (/actuator/info)
 info:
   app:
-    app-name: Client Service Microservice
+    app-name: Client Service Microservice Desarrollo
     description: Microservicio para el consumo de los servicios producto-service, user-service y shop-service
     version: 1.0
 
