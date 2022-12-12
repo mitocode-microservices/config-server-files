@@ -1,6 +1,29 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9001}
 
+### Eureka Client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    #     Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
+   healthcheck:
+     enabled: true
+   refresh:
+     enable: true
+
+### Actuator info (/actuator/info)
+info:
+  app:
+    app-name: Client Service Microservice
+    description: Microservicio para el consumo de los servicios producto-service, user-service y shop-service
+    version: 1.0
+
 ### Circuitbreaker configuration
 resilience4j:
  circuitbreaker:
@@ -30,26 +53,3 @@ resilience4j:
        base-config: customConfig
      product-service:
        base-config: customConfig
-
-### Actuator info (/actuator/info)
-info:
-  app:
-    app-name: Client Service Microservice
-    description: Microservicio para el consumo de los servicios producto-service, user-service y shop-service
-    version: 1.0
-
-### Eureka Client configuration
-eureka:
-  instance:
-    prefer-ip-address: true
-    lease-expiration-duration-in-seconds: 30
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
-    registerWithEureka: true
-    fetchRegistry: true
-    #     Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
-   healthcheck:
-     enabled: true
-   refresh:
-     enable: true
