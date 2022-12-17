@@ -24,9 +24,15 @@ spring:
         - id: product-service
           uri: lb://product-service
           predicates:
-            - Path=/api/product/**
+            - Path=/api/products/**
           filters:
-            - StripPrefix=2
+            - StripPrefix=2   
+            #- CustomFilterMitocode=Hello Mitocode, curso, arquitectura_microservicios
+            - name: Custom
+              args:
+                message: Hello Mitocode
+                cookieName: curso
+                cookieValue: arquitectura_microservicios
         - id: user-service
           uri: lb://user-service
           predicates:
@@ -45,7 +51,11 @@ spring:
           predicates:
             - Path=/api/client/**
           filters:
-            - StripPrefix=
+            - StripPrefix=2
+            - AddRequestHeader=SOME_TOKEN, MY_TOKEN
+            - AddResponseHeader=SOME_TOKEN, MY_TOKEN
+            - AddRequestParameter=SOME_TOKEN, MY_TOKEN
+            - AddRequestParameter=SOME_VALUE, MITOCODE
 
 ### Circuitbreaker configuration
 resilience4j:
