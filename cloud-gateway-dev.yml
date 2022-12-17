@@ -27,7 +27,11 @@ spring:
             - Path=/api/products/**
           filters:
             - StripPrefix=2   
-            - CircuitBreaker=product-service
+            - name: CircuitBreaker
+              args:
+                name: product-service
+                statusCodes: 500, 404
+                fallbackUri: forward:/api/another-service/
             - CustomFilterMitocode=Hello Mitocode, curso, arquitectura_microservicios
             # - name: Custom
               # args:
@@ -38,6 +42,12 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/api/users/**
+          filters:
+            - StripPrefix=2
+        - id: oauth-server
+          uri: lb://oauth-server
+          predicates:
+            - Path=/api/security/**
           filters:
             - StripPrefix=2
         - id: shop-service
