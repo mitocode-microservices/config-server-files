@@ -17,11 +17,11 @@ eureka:
       enable: true
 
 ### Actuator info (/actuator/info)
-info:
-  app:
-    app-name: Product Service Microservice
-    description: Microservicio para el crud de los productos
-    version: 1.0
+# info:
+  # app:
+    # name: Product Service Microservice
+    # description: Microservicio para el crud de los productos
+    # version: 1.0
 
 ### Mongo database configuration
 spring:
