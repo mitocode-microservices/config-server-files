@@ -37,10 +37,10 @@ spring:
   #webflux:
   #  base-path: '/product-service/v1'
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info
+# management:
+  # endpoints:
+    # web:
+      # exposure:
+        # include: health, info
         # include: '*'
-      base-path: /actuator
+      # base-path: /actuator
