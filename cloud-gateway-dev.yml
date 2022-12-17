@@ -56,7 +56,7 @@ spring:
             - AddResponseHeader=SOME_TOKEN, MY_TOKEN
             - AddRequestParameter=SOME_TOKEN, MY_TOKEN
             - AddRequestParameter=SOME_VALUE, MITOCODE
-            - SetContentType=Content-Type, application/json
+            - SetResponseHeader=Content-Type, application/json
 
 ### Circuitbreaker configuration
 resilience4j:
