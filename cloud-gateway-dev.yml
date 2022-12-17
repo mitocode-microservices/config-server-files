@@ -27,12 +27,12 @@ spring:
             - Path=/api/products/**
           filters:
             - StripPrefix=2   
-            #- CustomFilterMitocode=Hello Mitocode, curso, arquitectura_microservicios
-            - name: Custom
-              args:
-                message: Hello Mitocode
-                cookieName: curso
-                cookieValue: arquitectura_microservicios
+            - CustomFilterMitocode=Hello Mitocode, curso, arquitectura_microservicios
+            # - name: Custom
+              # args:
+                # message: Hello Mitocode
+                # cookieName: curso
+                # cookieValue: arquitectura_microservicios
         - id: user-service
           uri: lb://user-service
           predicates:
