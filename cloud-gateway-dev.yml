@@ -50,11 +50,11 @@ spring:
           uri: lb://client-service
           predicates:
             - Path=/api/client/**
-            - Header=authorization-token, \d+
-            #- Query=curso
-            - Query=curso, mitocode
-            - Method=GET, POST, PUT
-            - Cookie=curso, mitocode
+            #- Header=authorization-token, \d+
+            ##- Query=curso
+            #- Query=curso, mitocode
+            #- Method=GET, POST, PUT
+            #- Cookie=curso, mitocode
           filters:
             - StripPrefix=2
             - AddRequestHeader=SOME_TOKEN, MY_TOKEN
