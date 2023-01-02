@@ -110,10 +110,9 @@ info:
     description: Microservicio para el ruteo de los microservicios
     version: 1.0
 
-# management:
-  # endpoints:
-    # web:
-      # exposure:
-#        include: health, info
-        # include: '*'
-      # base-path: /actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
