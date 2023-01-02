@@ -52,3 +52,10 @@ eureka:
       enabled: true
     refresh:
       enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
