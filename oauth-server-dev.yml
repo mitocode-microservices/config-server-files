@@ -25,7 +25,7 @@ eureka:
 config:
   oauth2:
     clientId: mitocode
-    clientSecret: '{cipher}19464a2bbdd2434364552efe05f7443da777172021ec65c3ebdc5a137b7c1074'
+    clientSecret: mitocode
     accesstoken_validity: 1
     refreshtoken_validity: 30
     privateKey: -----BEGIN RSA PRIVATE KEY-----
