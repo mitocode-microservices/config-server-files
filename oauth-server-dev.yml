@@ -1,3 +1,6 @@
+encrypt:
+  key: mitocode-secrets
+
 spring:
   data:
     mongodb:
