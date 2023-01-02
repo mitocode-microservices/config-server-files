@@ -36,3 +36,13 @@ spring:
       authentication-database: admin
   #webflux:
   #  base-path: '/product-service/v1'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  info:
+    env:
+      enabled: true

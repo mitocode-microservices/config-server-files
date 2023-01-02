@@ -1,18 +1,5 @@
 server:
-  port: ${CUSTOM.SERVER.PORT:8888}
-
-encrypt:
-  key: mitocode-secrets
-
-spring:
-  data:
-    mongodb:
-      database: mitocode
-      host: 127.0.0.1
-      port: 27017
-      username: 'mitocode'
-      password: 'mitocode'
-      authentication-database: admin
+  port: ${CUSTOM.SERVER.PORT:8090}
 
 eureka:
   client:
@@ -20,15 +7,38 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     registerWithEureka: true
     fetchRegistry: true
-    healthcheck:  
+    #     Habilitando la gestión de los estados del microservicio. healthcheck.enabled:true
+    healthcheck:
       enabled: true
     refresh:
       enable: true
 
+zuul:
+  routes:
+    products:
+      path: /api/products/**
+      service-id: product-service
+    security:
+      path: /api/security/**
+      service-id: oauth-server
+    users:
+      path: /api/users/**
+      service-id: user-service
+#      url: http://localhost:8081/products
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 20000
+#ribbon:
+#  ConnectTimeout: 30000
+#  ReadTimeout: 10000
+
 config:
   oauth2:
-    clientId: mitocode
-    clientSecret: mitocode
     accesstoken_validity: 1
     refreshtoken_validity: 30
     privateKey: -----BEGIN RSA PRIVATE KEY-----
@@ -71,8 +81,8 @@ config:
 ### Actuator info (/actuator/info)
 info:
   app:
-    app-name: OAuth Server
-    description: Microservicio para la autenticación de los usuarios
+    app-name: Zuul Gateway
+    description: Microservicio para el ruteo de las peticiones
     version: 1.0
 
 management:
