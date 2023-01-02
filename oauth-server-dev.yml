@@ -14,7 +14,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     registerWithEureka: true
     fetchRegistry: true
-    healthcheck:
+    healthcheck:  
       enabled: true
     refresh:
       enable: true
@@ -22,7 +22,7 @@ eureka:
 config:
   oauth2:
     clientId: mitocode
-   clientSecret: '{cipher}19464a2bbdd2434364552efe05f7443da777172021ec65c3ebdc5a137b7c1074'
+    clientSecret: '{cipher}19464a2bbdd2434364552efe05f7443da777172021ec65c3ebdc5a137b7c1074'
     accesstoken_validity: 1
     refreshtoken_validity: 30
     privateKey: -----BEGIN RSA PRIVATE KEY-----
