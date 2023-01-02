@@ -16,14 +16,15 @@ eureka:
 zuul:
   routes:
     products:
+      serviceId: product-service
       path: /api/products/**
-      service-id: product-service
-    security:
+    security:      
+      serviceId: oauth-server
       path: /api/security/**
-      service-id: oauth-server
+      sensitiveHeaders: Cookie,Set-Cookie
     users:
+      serviceId: user-service
       path: /api/users/**
-      service-id: user-service
 #      url: http://localhost:8081/products
 
 #hystrix:
