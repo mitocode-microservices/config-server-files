@@ -32,7 +32,7 @@ spring:
       database: mitocode
       username: mitocode
       password: mitocode
-      uri: mongodb://mitocode:mitocode@localhost:27017
+      uri: mongodb://mitocode:mitocode@192.168.0.100:27017
       authentication-database: admin
   #webflux:
   #  base-path: '/product-service/v1'

@@ -44,6 +44,7 @@ spring:
             - Path=/api/users/**
           filters:
             - StripPrefix=2
+            - CustomFilterMitocode=Hello Mitocode, curso, arquitectura_microservicios
         - id: oauth-server
           uri: lb://oauth-server
           predicates:
