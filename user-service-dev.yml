@@ -36,11 +36,17 @@ spring:
       authentication-database: admin
 
 management:
+  auditevents:
+    enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
-  info:
-    env:
-      enabled: true
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
