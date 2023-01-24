@@ -1,0 +1,8 @@
+application:
+  author: Jonathan Choy Rivera
+
+---
+spring:
+  profiles: dev
+application:
+  author: Mitocode Network S.A.C.
