@@ -50,3 +50,9 @@ management:
           include: diskSpace, ping, memory, mem
           show-component: always
           show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    env:
+      enabled: true
