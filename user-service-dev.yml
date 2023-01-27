@@ -1,6 +1,9 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9004}
 
+encrypt:
+  key: mitocode-secrets
+
 ### Eureka Client configuration
 eureka:
   instance:
