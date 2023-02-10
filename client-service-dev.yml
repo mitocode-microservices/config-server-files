@@ -13,7 +13,7 @@ resilience4j:
   circuitbreaker:
     configs:
       customProductService:
-        slidingWindowSize: 10
+        slidingWindowSize: 20
         failureRateThreshold: 70
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 10
