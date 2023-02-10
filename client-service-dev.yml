@@ -8,6 +8,21 @@ info:
     description: Microservicio para el consumo de los servicios producto-service, user-service y shop-service
     version: 1.0
 
+### CircuitBreaker Configuration
+resilience4j:
+  circuitbreaker:
+    configs:
+      customProductService:
+        slidingWindowSize: 10
+        failureRateThreshold: 70
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 10
+        slow-call-duration-threshold: 2s
+        slow-call-rate-threshold: 70
+    instances:
+      product-service:
+        base-config: customProductService
+
 ### Eureka Client configuration
 eureka:
   instance:
