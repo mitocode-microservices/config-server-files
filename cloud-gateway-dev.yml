@@ -27,10 +27,7 @@ spring:
             - Path=/api/product/**
           filters:
             - StripPrefix=2
-            - AddRequestHeader=REQUEST_TOKEN,REQUEST_TOKEN_VALUE
-            - AddResponseHeader=RESPONSE_TOKEN,RESPONSE_TOKEN_VALUE
-            - SetResponseHeader=Content-Type,text/plain
-            - AddRequestParameter=product,CursoMicroservicios
+            - MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
           uri: lb://user-service
           predicates:
