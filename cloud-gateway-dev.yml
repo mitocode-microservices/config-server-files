@@ -30,6 +30,7 @@ spring:
             - AddRequestHeader=REQUEST_TOKEN,REQUEST_TOKEN_VALUE
             - AddResponseHeader=RESPONSE_TOKEN,RESPONSE_TOKEN_VALUE
             - SetResponseHeader=Content-Type,text/plain
+            - AddRequestParameter=product,Curso Microservicios
         - id: user-service
           uri: lb://user-service
           predicates:
