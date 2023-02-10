@@ -29,7 +29,7 @@ spring:
             - StripPrefix=2
             - AddRequestHeader=REQUEST_TOKEN,REQUEST_TOKEN_VALUE
             - AddResponseHeader=RESPONSE_TOKEN,RESPONSE_TOKEN_VALUE
-            - AddRequestHeader=Content-Type,text/plain
+            - SetResponseHeader=Content-Type,text/plain
         - id: user-service
           uri: lb://user-service
           predicates:
