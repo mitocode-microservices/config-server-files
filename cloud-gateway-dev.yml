@@ -34,6 +34,12 @@ spring:
             - Path=/api/user/**
           filters:
             - StripPrefix=2
+        - id: authentication-server
+          uri: lb://authentication-server-jwt
+          predicates:
+            - Path=/api/security/**
+          filters:
+            - StripPrefix=2
 
 ### Actuator info (/actuator/info)
 info:
