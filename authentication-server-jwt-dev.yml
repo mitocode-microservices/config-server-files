@@ -28,7 +28,7 @@ eureka:
 config:
   jwt:
     accessTokenValidity: 10
-    privateKey: mitocode
+    privateKey: fb649817d72df09a9149c7722caed63667b5f7e351d7ba833054c36f30292badbd7b31e805f414320d91a3d49b19129c
 
 ### Actuator info (/actuator/info)
 info:
