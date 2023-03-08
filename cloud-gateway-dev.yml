@@ -52,6 +52,7 @@ spring:
             - name: CircuitBreaker
               args: 
                 name: product-service
+                statusCodes: 500, 404
                 fallbackUri: forward:/api/user/user
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
