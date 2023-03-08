@@ -52,7 +52,6 @@ spring:
             - name: CircuitBreaker
               args: 
                 name: product-service-cb
-                statusCodes: 500, 404
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
           uri: lb://user-service
