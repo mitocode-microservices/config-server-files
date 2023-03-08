@@ -27,7 +27,7 @@ spring:
             - Path=/api/product/**
           filters:
             - StripPrefix=2
-            - MitocodeFilter=HEADER_KEY,HEADER_VALUE
+            #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
           uri: lb://user-service
           predicates:
