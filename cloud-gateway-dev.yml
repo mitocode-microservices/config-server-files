@@ -48,7 +48,7 @@ spring:
           predicates:
             - Path=/api/product/**
           filters:
-            - CircuitBreaker=
+            - CircuitBreaker=product-service-cb
             - StripPrefix=2
             # - name: CircuitBreaker
               # args: 
