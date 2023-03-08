@@ -49,7 +49,7 @@ spring:
             - Path=/api/product/**
           filters:
             - StripPrefix=2
-            - CircuitBreaker: product-service-cb
+            - CircuitBreaker=product-service-cb
             # - name: CircuitBreaker
               # args: 
                 # name: product-service-cb
