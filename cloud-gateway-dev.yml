@@ -50,8 +50,9 @@ spring:
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
-              args: product-service
-              fallbackUri: forward:/api/user/user
+              args: 
+                name: product-service
+                fallbackUri: forward:/api/user/user
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
           uri: lb://user-service
