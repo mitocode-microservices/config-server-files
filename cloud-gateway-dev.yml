@@ -52,7 +52,6 @@ spring:
               args: 
                 name: product-service-cb
                 statusCodes: 500, 404
-                fallbackUri: forward:/api/user/user
             - StripPrefix=2
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
