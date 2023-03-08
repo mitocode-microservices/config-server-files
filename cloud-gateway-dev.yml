@@ -49,9 +49,10 @@ spring:
             - Path=/api/product/**
           filters:
             - StripPrefix=2
-            - name: CircuitBreaker
-              args: 
-                name: product-service-cb
+            - CircuitBreaker: product-service-cb
+            # - name: CircuitBreaker
+              # args: 
+                # name: product-service-cb
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
           uri: lb://user-service
