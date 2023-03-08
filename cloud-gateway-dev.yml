@@ -18,7 +18,7 @@ resilience4j:
  timelimiter:
    configs:
      customConfig:
-       timeout-duration: 2s
+       timeout-duration: 1s
    instances:
      product-service-cb:
        base-config: customConfig
@@ -48,13 +48,12 @@ spring:
           predicates:
             - Path=/api/product/**
           filters:
-            - CircuitBreaker=product-service-cb
+            - name: CircuitBreaker
+              args: 
+                name: product-service-cb
+                statusCodes: 500, 404
+                fallbackUri: forward:/api/user/user
             - StripPrefix=2
-            # - name: CircuitBreaker
-              # args: 
-                # name: product-service
-                # statusCodes: 500, 404
-                # fallbackUri: forward:/api/user/user
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
           uri: lb://user-service
