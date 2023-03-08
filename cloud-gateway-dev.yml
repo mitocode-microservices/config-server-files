@@ -13,14 +13,14 @@ resilience4j:
        slow-call-rate-threshold: 50
        slow-call-duration-threshold: 2s
    instances:  
-     product-service:
+     product-service-cb:
        base-config: customConfig
  timelimiter:
    configs:
      customConfig:
        timeout-duration: 2s
    instances:
-     product-service:
+     product-service-cb:
        base-config: customConfig
 
 ### Eureka Client configuration
@@ -51,7 +51,7 @@ spring:
             - StripPrefix=2
             - name: CircuitBreaker
               args: 
-                name: product-service
+                name: product-service-cb
                 statusCodes: 500, 404
                 fallbackUri: forward:/api/user/user
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
