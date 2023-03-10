@@ -12,16 +12,29 @@ resilience4j:
        permitted-number-of-calls-in-half-open-state: 10
        slow-call-rate-threshold: 50
        slow-call-duration-threshold: 2s
+      customConfig2:
+       sliding-window-size: 50
+       failure-rate-threshold: 10
+       wait-duration-in-open-state: 30s
+       permitted-number-of-calls-in-half-open-state: 10
+       slow-call-rate-threshold: 50
+       slow-call-duration-threshold: 2s
    instances:  
      product-service-cb:
        base-config: customConfig
+     user-service-cb:
+       base-config: customConfig2
  timelimiter:
    configs:
      customConfig:
        timeout-duration: 1s
+     customConfig:
+       timeout-duration: 10s
    instances:
      product-service-cb:
        base-config: customConfig
+     user-service-cb:
+       base-config: customConfig2
 
 ### Eureka Client configuration
 eureka:
@@ -48,10 +61,11 @@ spring:
           predicates:
             - Path=/api/product/**
           filters:
+            # - CircuitBreaker=product-service-cb
             - name: CircuitBreaker
               args: 
                 name: product-service-cb
-                statusCodes: 500, 404
+                statusCodes: 500, 404, 403, 401
             - StripPrefix=2
             #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
         - id: user-service
