@@ -6,3 +6,15 @@ kafka:
     topic: mitocode
     server: 127.0.0.1
     port: 9092
+    
+### Mongo database configuration
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mitocode
+      username: mitocode
+      password: mitocode
+      uri: mongodb://mitocode:mitocode@localhost:27017
+      authentication-database: admin
