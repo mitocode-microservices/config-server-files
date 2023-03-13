@@ -28,11 +28,9 @@ spring:
   data:
     mongodb:
       host: localhost
-      port: 27017
+      port: 27018
       database: mitocode
-      # username: mitocode
-      # password: mitocode
-      uri: mongodb://mitocode:mitocode@localhost:27017
+      uri: mongodb://mitocode:mitocode@localhost:27018
       authentication-database: admin
   #webflux:
   #  base-path: '/product-service/v1'
