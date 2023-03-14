@@ -30,14 +30,14 @@ spring:
       host: localhost
       port: 27017
       database: mitocode
-      uri: mongodb://mitocode:mitocode@localhost:27017
+      uri: ${MONGODB.CONNECTION.URL:'mongodb://mitocode:mitocode@localhost:27017'}
       authentication-database: admin
   #webflux:
   #  base-path: '/product-service/v1'
 
 kafka:
   mitocode:
-    topic: mitocode
+    topic: ${KAFKA.TOPIC:mitocode}
     server: 127.0.0.1
     port: 9092
 
