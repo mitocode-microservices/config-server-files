@@ -65,7 +65,7 @@ spring:
           uri: lb://product-query-service
           predicates:
             - Path=/api/product/**
-            - Weight=group-product, 10
+            - Weight=group-product, 30
           filters:
             - name: CircuitBreaker
               args:
@@ -76,7 +76,7 @@ spring:
           uri: lb://product-query-service-v2
           predicates:
             - Path=/api/product/**
-            - Weight=group-product, 90
+            - Weight=group-product, 70
           filters:
             - name: CircuitBreaker
               args:
