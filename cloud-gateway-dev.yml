@@ -59,7 +59,33 @@ spring:
         - id: product-service
           uri: lb://product-service
           predicates:
+            - Path=/api/product-command/**
+          filters:
+            # - CircuitBreaker=product-service-cb
+            - name: CircuitBreaker
+              args: 
+                name: product-service-cb
+                statusCodes: 500, 404, 403, 401
+            - StripPrefix=2
+            #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
+        - id: product-query-service
+          uri: lb://product-query-service
+          predicates:
             - Path=/api/product/**
+            - Weight=group-product, 10
+          filters:
+            # - CircuitBreaker=product-service-cb
+            - name: CircuitBreaker
+              args: 
+                name: product-service-cb
+                statusCodes: 500, 404, 403, 401
+            - StripPrefix=2
+            #- MitocodeFilter=HEADER_KEY,HEADER_VALUE
+        - id: product-query-service-v2
+          uri: lb://product-query-service-v2
+          predicates:
+            - Path=/api/product/**
+            - Weight=group-product, 90
           filters:
             # - CircuitBreaker=product-service-cb
             - name: CircuitBreaker
