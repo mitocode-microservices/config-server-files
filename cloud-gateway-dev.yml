@@ -61,16 +61,31 @@ spring:
                 name: product-service-cb
                 statusCodes: 500, 404, 403, 401
             - StripPrefix=2
+
         - id: product-query-service
           uri: lb://product-query-service
           predicates:
-            - Path=/api/product/**
+            - Path=/api/product-query/**
+            - Weight=product-group, 5
           filters:
             - name: CircuitBreaker
               args:
                 name: product-service-cb
                 statusCodes: 500, 404, 403, 401
             - StripPrefix=2
+
+        - id: product-query-service-v2
+          uri: lb://product-query-service-v2
+          predicates:
+            - Path=/api/product-query/**
+            - Weight=product-group, 95
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: product-service-cb
+                statusCodes: 500, 404, 403, 401
+            - StripPrefix=2
+
         - id: user-service
           uri: lb://user-service
           predicates:

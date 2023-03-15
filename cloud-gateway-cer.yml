@@ -45,7 +45,7 @@ spring:
           predicates:
             - Path=/api/client/**
           filters:
-            - StripPrefix=
+            - StripPrefix=2
 
 ### Circuitbreaker configuration
 resilience4j:
