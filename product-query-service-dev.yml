@@ -29,7 +29,7 @@ spring:
     mongodb:
       host: localhost
       database: mitocode
-      uri: mongodb://mitocode:mitocode@localhost:27018
+      uri: ${MONGODB.CONNECTION.URL:mongodb://mitocode:mitocode@localhost:27018}
       authentication-database: admin
   #webflux:
   #  base-path: '/product-service/v1'
