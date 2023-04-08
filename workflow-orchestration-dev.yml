@@ -32,3 +32,10 @@ management:
   info:
     env:
       enabled: true
+
+# Temporal Configuration
+temporal:
+  mitocode:
+    queue: mitocode
+    hostname: 127.0.0.1:7233
+    namespace: default
